@@ -2,7 +2,7 @@
 
 This project provides two Python classes, `Card` and `Deck`, for representing playing cards and a deck of cards, respectively. It allows you to create, shuffle, and deal cards from a standard 52-card deck, using the classic French suits.
 
-This project was done for Colt Steele's Python bootcamp. Had a lot of fun making this and learning about class attributes, and instance methods.
+This project was done for Colt Steele's Python bootcamp. I had a lot of fun making this and learning about class attributes, and instance methods.
 
 ## Classes
 
