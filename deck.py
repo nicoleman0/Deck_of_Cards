@@ -36,8 +36,8 @@ class Deck:
     def deal_card(self):
         return self._deal(1)[0]
 
-    def deal_hand(self, num):
-        return self._deal(num)
+    def deal_hand(self, hand_size):
+        return self._deal(hand_size)
 
     def shuffle(self):
         if self.count() < 52:
@@ -46,6 +46,10 @@ class Deck:
         return self     # this allows for method chaining
 
 
+# Example
 deck = Deck()
-print(deck.shuffle())
-print(deck.deal_hand(5))
+deck.shuffle()
+card = deck.deal_card()
+print(card)
+hand = deck.deal_hand(5)
+print(hand)
