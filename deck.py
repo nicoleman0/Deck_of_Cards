@@ -41,7 +41,7 @@ class Deck:
         return self     # this allows for method chaining
 
     def deal_card(self):
-        return self._deal(1)
+        return self._deal(1)[0]
 
     def deal_hand(self, num):
         return self._deal(num)
