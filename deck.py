@@ -18,27 +18,20 @@ class Deck:
         self.cards = [Card(value, suit)
                       for suit in Card.suits for value in Card.values]
 
-    def count(self):
-        return len(self.cards)
-
     def __repr__(self):
         return f"Deck of {self.count()} cards"
 
-    def _deal(self, num):
-        if self.count() == 0:
-            raise ValueError("All cards have been dealt!")
-        if self.count() < num:
-            raise ValueError(
-                f"Not enough cards to deal {num} cards. Only {self.count()} cards left.")
-        cards = self.cards[-num:]
-        self.cards = self.cards[:-num]
-        return cards
+    def count(self):
+        return len(self.cards)
 
-    def shuffle(self):
-        if self.count() < 52:
-            raise ValueError("Only full decks can be shuffled.")
-        shuffle(self.cards)
-        return self     # this allows for method chaining
+    def _deal(self, num):
+        count = self.count()
+        actual = min([count, num])
+        if count == 0:
+            raise ValueError("All cards have been dealt")
+        cards = self.cards[-actual:]
+        self.cards = self.cards[:-actual]
+        return cards
 
     def deal_card(self):
         return self._deal(1)[0]
@@ -46,6 +39,13 @@ class Deck:
     def deal_hand(self, num):
         return self._deal(num)
 
+    def shuffle(self):
+        if self.count() < 52:
+            raise ValueError("Only full decks can be shuffled.")
+        shuffle(self.cards)
+        return self     # this allows for method chaining
 
-print(Deck().shuffle())
-print(Deck().deal_card())
+
+deck = Deck()
+print(deck.shuffle())
+print(deck.deal_hand(5))
