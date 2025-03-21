@@ -21,6 +21,9 @@ class Deck:
     def __repr__(self):
         return f"Deck of {self.count()} cards"
 
+    def __iter__(self):  # allows for the Deck to be iterated over
+        return iter(self.cards)
+
     def count(self):
         return len(self.cards)
 
@@ -46,10 +49,6 @@ class Deck:
         return self     # this allows for method chaining
 
 
-# Example
 deck = Deck()
-deck.shuffle()
-card = deck.deal_card()
-print(card)
-hand = deck.deal_hand(5)
-print(hand)
+for card in deck:
+    print(card)
