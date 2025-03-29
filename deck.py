@@ -47,8 +47,3 @@ class Deck:
             raise ValueError("Only full decks can be shuffled.")
         shuffle(self.cards)
         return self     # this allows for method chaining
-
-
-deck = Deck()
-for card in deck:
-    print(card)
